@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Rate } from '../rates/rate.entity';
 
 @Entity()
 export class Flight {
@@ -7,19 +8,12 @@ export class Flight {
   id: number;
 
   @Column()
-  origin: string;
-
-  @Column()
-  destination: string;
-
-  @Column()
   depatureAt: Date;
 
   @Column()
   arrivalAt: Date;
 
-  @Column()
-  price: number;
-
+  @ManyToOne(type => Rate, rate => rate.flights)
+  rate: Rate;
 
 }

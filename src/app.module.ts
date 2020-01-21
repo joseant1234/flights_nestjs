@@ -4,12 +4,14 @@ import { AppService } from './app.service';
 import { FlightsModule } from './flights/flights.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
-import { databaseOptions } from './config/database';
+import * as databaseOptions  from './typeOrmDatabase';
+import { RatesModule } from './rates/rates.module';
 
 @Module({
   imports: [
-    FlightsModule,
     TypeOrmModule.forRoot(databaseOptions),
+    FlightsModule,
+    RatesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
