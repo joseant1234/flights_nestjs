@@ -4,7 +4,6 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import * as dotenv from 'dotenv';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
-
 dotenv.config();
 
 async function bootstrap() {
@@ -20,5 +19,6 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   await app.listen(process.env.PORT);
+  
 }
 bootstrap();
