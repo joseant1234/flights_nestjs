@@ -1,8 +1,9 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { Flight } from '../flights/flight.entity';
+import { IRate } from './rate.interface';
 
 @Entity()
-export class Rate {
+export class Rate implements IRate{
 
   @PrimaryGeneratedColumn()
   id: number;

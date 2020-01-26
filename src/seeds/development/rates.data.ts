@@ -1,6 +1,6 @@
-import { Rate } from '../../rates/rate.entity';
+import { IRate } from '../../rates/rate.interface';
 
-export const rates: Partial<Rate>[] = [
+export const rates: IRate[] = [
   {
     origin: 'MAD',
     destination: 'BCN',
