@@ -19,6 +19,16 @@ export class Rate {
   @OneToMany(type => Flight, flight => flight.rate)
   flights: Flight[];
 
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  createdAt: string;
 
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  updatedAt: string;
 
 }
