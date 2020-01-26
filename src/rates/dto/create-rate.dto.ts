@@ -5,6 +5,7 @@ export class CreateRateDto {
 
   @IsString()
   @ApiProperty({
+    description: 'Origin in IATA',
     required: true,
     example: 'MAD'
   })
@@ -12,6 +13,7 @@ export class CreateRateDto {
 
   @IsString()
   @ApiProperty({
+    description: 'Destination in IATA',
     required: true,
     example: 'BCN'
   })
@@ -20,8 +22,6 @@ export class CreateRateDto {
   @IsInt()
   @ApiProperty({
     description: 'Price of the rate',
-    default: 1,
-    type: Number,
     required: true,
     example: 350
   })

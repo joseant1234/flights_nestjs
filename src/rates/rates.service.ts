@@ -2,8 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Rate } from './rate.entity';
-import { IRate } from './rate.interface';
-
+import { CreateRateDto } from './dto/create-rate.dto';
 
 @Injectable()
 export class RatesService {
@@ -16,9 +15,9 @@ export class RatesService {
     return this.rateRepository.find();
   }
 
-  create(rate: any): any {
-    console.log(rate)
-    // return this.rateRepository.create(rate);
+  create(rateDto: CreateRateDto): Promise<Rate> {
+    const rate = this.rateRepository.create(rateDto);
+    return this.rateRepository.save(rate)
   }
 
 }
