@@ -9,7 +9,7 @@ export class Flight implements IFlight{
   id: number;
 
   @Column()
-  depatureAt: Date;
+  departureAt: Date;
 
   @Column()
   arrivalAt: Date;

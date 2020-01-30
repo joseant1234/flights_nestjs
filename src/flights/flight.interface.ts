@@ -1,5 +1,5 @@
 export interface IFlight {
 
-  depatureAt: Date;
+  departureAt: Date;
   arrivalAt: Date;
 }
