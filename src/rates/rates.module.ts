@@ -1,13 +1,12 @@
 import { Module } from '@nestjs/common';
 import { RatesService } from './rates.service';
-import { Rate } from './rate.entity';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { RatesController } from './rates.controller';
+import { SharedModule } from '../common/shared.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Rate])],
+  imports: [SharedModule],
   providers: [RatesService],
   controllers: [RatesController],
-  exports: [TypeOrmModule]
+  exports: []
 })
 export class RatesModule {}
