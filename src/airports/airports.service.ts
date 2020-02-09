@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, Like } from 'typeorm';
+import { Repository, Like, DeleteResult } from 'typeorm';
 import { Airport } from './airport.entity';
 import { CreateAirportDto } from './dto/create-airport.dto';
 import * as airportFile from './data/airports.json';
@@ -38,6 +38,10 @@ export class AirportsService {
     })
 
     return this.airportRepository.save(filteredAirports);
+  }
+
+  async destroy(airportId: number): Promise<DeleteResult> {
+    return this.airportRepository.delete({ id: airportId })
   }
 
   private buildAirportList(): CreateAirportDto[] {
