@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { Rate } from '../rates/rate.entity';
 import { IFlight } from './flight.interface';
+import { Expose } from 'class-transformer';
 
 @Entity()
 export class Flight implements IFlight{
@@ -28,5 +29,6 @@ export class Flight implements IFlight{
     default: () => 'CURRENT_TIMESTAMP',
   })
   updatedAt: string;
+
 
 }

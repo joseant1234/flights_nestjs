@@ -18,14 +18,11 @@ export class FlightsService {
   }
 
   async create(flightDto: CreateFlightDto): Promise<Flight> {
-
     const rate = await this.rateRepository.findOne(flightDto.rateId);
     if (rate) {
       const flight = this.flightRepository.create({...flightDto, rate });
       return this.flightRepository.save(flight);
     }
-    return;
-
   }
 
 }
